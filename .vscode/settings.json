@@ -1,0 +1,15 @@
+{
+  // Tailwind v4 direktiflerini (@apply, @theme, @layer) tanıyan CSS linter ayarı
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+
+  // Tailwind IntelliSense için dosya ilişkilendirmesi
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+
+  // Tailwind sınıf önerilerini tetikleyen karakterler
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
+}
