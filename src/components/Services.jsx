@@ -98,7 +98,8 @@ const Services = () => {
           duration: { min: 0.2, max: 0.4 },
           ease:     'power2.inOut',
         },
-        end: () => '+=' + scrollWrapperRef.current.offsetWidth,
+        // Multiply by 0.5 to cut the required vertical scroll distance in half
+        end: () => '+=' + (scrollWrapperRef.current.offsetWidth * 0.5),
         anticipatePin: 1,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
