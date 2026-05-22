@@ -2,12 +2,13 @@
 
 # ✦ Felides Agency
 
-**Sinematik video prodüksiyon · Drone çekimleri · Web & Grafik Tasarım**
+**Web Site · Video Prodüksiyon · Drone Çekimleri · Grafik Tasarım & Baskı · QR Menü**
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![GSAP](https://img.shields.io/badge/GSAP-3-88CE02?style=flat-square&logo=greensock&logoColor=black)](https://gsap.com)
+[![Lenis](https://img.shields.io/badge/Lenis-Smooth%20Scroll-000000?style=flat-square)](https://github.com/darkroomengineering/lenis)
 
 </div>
 
@@ -15,18 +16,20 @@
 
 ## 📸 Önizleme
 
-> Dijital dünyada iz bırakan sinematik bir ajans web sitesi.  
-> Unsplash görselleri, GSAP animasyonları ve yatay scroll deneyimi.
+> Dijital dünyada iz bırakan sinematik bir ajans web sitesi.
+> GSAP ScrollTrigger, Lenis smooth scroll, yatay kart galerisi ve paralaks geçişlerle premium bir deneyim.
 
 ---
 
 ## 🚀 Özellikler
 
-- **Hero Section** — Unsplash sinematik arka plan, mouse parallax, GSAP karakter animasyonu, CTA butonları
-- **Services Section** — Yatay kaydırmalı (pin + scrub) tam ekran kart galerisi; her karta özel Unsplash görseli
-- **Clients Marquee** — Sonsuz döngüde akan referans markaları (CSS animasyonu)
-- **Footer** — İletişim ve sosyal bağlantılar
-- **Mikro-etkileşimler** — Hover scale, shimmer buton, gradient overlay, scroll indicator
+- **Lenis Smooth Scroll** — `@studio-freight/lenis` ile silky-smooth sayfa kaydırma; GSAP ticker ile frame-perfect senkronizasyon
+- **Hero Section** — Sinematik Unsplash arka plan, mouse parallax, GSAP karakter-karakter title animasyonu, scroll-exit parallax
+- **Services Section** — 5 hizmet kartı; yatay pin + scrub + snap scroll; sol metin paneli / sağ ilgili görsel split layout; canlı progress bar
+- **Clients Marquee** — GSAP infinite tween; hover'da timeScale ile yavaşlama efekti
+- **Navbar** — Saf GSAP ScrollTrigger ile yön bazlı göster/gizle; sıfır React re-render
+- **Footer** — Stagger reveal + border çizgi animasyonu
+- **Mikro-etkileşimler** — Hover scale, shimmer buton, gradient overlay, scroll indicator bounce
 
 ---
 
@@ -37,8 +40,8 @@
 | UI Framework | React 19 |
 | Build Tool | Vite 8 |
 | Styling | Tailwind CSS v4 |
-| Animasyon | GSAP 3 + ScrollTrigger |
-| Scroll | `@studio-freight/react-lenis` |
+| Animasyon | GSAP 3 + ScrollTrigger + useGSAP |
+| Smooth Scroll | `@studio-freight/lenis` |
 | İkonlar | Lucide React |
 | Fontlar | Inter · Bebas Neue (Google Fonts) |
 
@@ -47,7 +50,7 @@
 ## 📦 Kurulum
 
 ```bash
-# Depoyu klonla
+# Repoyu klonla
 git clone https://github.com/KULLANICI_ADIN/felides-agency.git
 cd felides-agency
 
@@ -67,22 +70,25 @@ Tarayıcıda `http://localhost:5173` adresini aç.
 ```
 felides-agency/
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.svg
+│   └── icons.svg
 ├── src/
 │   ├── components/
-│   │   ├── Navbar.jsx       # Sabit navigasyon çubuğu
-│   │   ├── Hero.jsx         # Tam ekran hero bölümü
-│   │   ├── Services.jsx     # Yatay scroll hizmet kartları
-│   │   ├── Clients.jsx      # Marquee referans şeridi
-│   │   └── Footer.jsx       # Footer
-│   ├── App.jsx
+│   │   ├── Navbar.jsx       # GSAP ScrollTrigger ile hide/show navbar
+│   │   ├── Hero.jsx         # Tam ekran hero + mouse parallax + scroll-exit
+│   │   ├── Services.jsx     # Yatay scroll hizmet kartları (split layout)
+│   │   ├── Clients.jsx      # GSAP infinite marquee + hover slowdown
+│   │   └── Footer.jsx       # Stagger reveal footer
+│   ├── hooks/
+│   │   └── useLenisScroll.js  # Lenis ↔ GSAP ticker köprüsü
+│   ├── App.jsx              # Root component + global plugin kaydı
 │   ├── index.css            # Global stiller + Tailwind v4 @theme
 │   └── main.jsx
 ├── index.html
 ├── tailwind.config.js
 ├── vite.config.js
-└── .vscode/
-    └── settings.json        # Tailwind direktifleri için CSS lint ayarı
+├── package.json
+└── .gitignore
 ```
 
 ---
@@ -90,7 +96,7 @@ felides-agency/
 ## 📜 Komutlar
 
 ```bash
-npm run dev      # Geliştirme sunucusu (HMR)
+npm run dev      # Geliştirme sunucusu (HMR aktif)
 npm run build    # Prodüksiyon derlemesi → dist/
 npm run preview  # Prodüksiyon önizleme
 npm run lint     # ESLint kontrolü
@@ -98,9 +104,26 @@ npm run lint     # ESLint kontrolü
 
 ---
 
+## 🎨 Animasyon Mimarisi
+
+```
+useLenisScroll()
+  ├── new Lenis({ lerp: 0.1, smoothWheel: true })
+  ├── gsap.ticker.add(t => lenis.raf(t * 1000))   ← frame-perfect sync
+  └── lenis.on('scroll', ScrollTrigger.update)
+
+Navbar     → ScrollTrigger.create onUpdate (direction-aware)
+Hero       → entrance timeline + mouse parallax + 3× scrub tweens
+Services   → pin + scrub + snap + progress bar onUpdate + img parallax
+Clients    → gsap.to(track, { xPercent:-50, repeat:-1 }) + timeScale hover
+Footer     → 4× ScrollTrigger reveals (title, desc, links stagger, border draw)
+```
+
+---
+
 ## 🖼️ Görseller
 
-Proje görselleri için [Unsplash](https://unsplash.com) kullanılmaktadır.  
+Tüm görseller [Unsplash](https://unsplash.com) üzerinden yüklenmektedir (API key gerekmez).
 Prodüksiyon ortamında kendi görsellerinizi `src/components/` dosyalarındaki `img` URL'leriyle değiştirebilirsiniz.
 
 ---

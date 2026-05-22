@@ -8,14 +8,14 @@ gsap.registerPlugin(useGSAP);
 const HERO_BG = 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1920&q=80&auto=format&fit=crop';
 
 const Hero = () => {
-  const containerRef  = useRef(null);
-  const bgRef         = useRef(null);
-  const badgeRef      = useRef(null);
-  const titleRef      = useRef(null);
-  const subtitleRef   = useRef(null);
-  const ctaRef        = useRef(null);
-  const scrollRef     = useRef(null);
-  const [imgLoaded, setImgLoaded]   = useState(false);
+  const containerRef = useRef(null);
+  const bgRef = useRef(null);
+  const badgeRef = useRef(null);
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const ctaRef = useRef(null);
+  const scrollRef = useRef(null);
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   useGSAP(() => {
     const tl = gsap.timeline({ delay: 0.1 });
@@ -24,7 +24,7 @@ const Hero = () => {
     const handleMouseMove = (e) => {
       const { clientX, clientY } = e;
       const { innerWidth, innerHeight } = window;
-      const xPct = (clientX / innerWidth  - 0.5) * 2;
+      const xPct = (clientX / innerWidth - 0.5) * 2;
       const yPct = (clientY / innerHeight - 0.5) * 2;
       gsap.to(bgRef.current, {
         x: xPct * -18,
@@ -190,7 +190,7 @@ const Hero = () => {
               className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
               viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
 
@@ -205,17 +205,16 @@ const Hero = () => {
               className="w-3 h-3 transition-transform duration-300 group-hover:translate-y-0.5"
               viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M6 2V10M6 10L2 6M6 10L10 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M6 2V10M6 10L2 6M6 10L10 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
         </div>
 
-        {/* İstatistikler Satırı */}
         <div className="mt-20 flex items-center gap-10 md:gap-16 text-center">
           {[
             { num: '150+', label: 'Tamamlanan Proje' },
-            { num: '8',    label: 'Yıllık Deneyim' },
-            { num: '40+',  label: 'Mutlu Marka' },
+            { num: '8', label: 'Yıllık Deneyim' },
+            { num: '40+', label: 'Mutlu Marka' },
           ].map((stat, i) => (
             <div key={i} className="flex flex-col gap-1">
               <span className="font-display text-4xl md:text-5xl text-white">{stat.num}</span>
@@ -225,7 +224,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* ── Scroll Indicator ─────────────────────────────── */}
       <div
         ref={scrollRef}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
