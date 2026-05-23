@@ -1,11 +1,14 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import Navbar    from './components/Navbar';
-import Hero      from './components/Hero';
-import Services  from './components/Services';
-import Clients   from './components/Clients';
-import Footer    from './components/Footer';
+import Navbar        from './components/Navbar';
+import Hero          from './components/Hero';
+import Services      from './components/Services';
+import Process       from './components/Process';
+import Testimonials  from './components/Testimonials';
+import Clients       from './components/Clients';
+import Contact       from './components/Contact';
+import Footer        from './components/Footer';
 import { useLenisScroll } from './hooks/useLenisScroll';
 import './index.css';
 
@@ -34,8 +37,19 @@ function App() {
         <div className="relative" style={{ zIndex: 20 }}>
           <Services />
         </div>
+        <div className="relative" style={{ zIndex: 25 }}>
+          <Process />
+        </div>
+        <div className="relative" style={{ zIndex: 27 }}>
+          <Testimonials />
+        </div>
         <div className="relative" style={{ zIndex: 30 }}>
           <Clients />
+        </div>
+        <div className="relative" style={{ zIndex: 35 }}>
+          <Contact />
+        </div>
+        <div className="relative" style={{ zIndex: 40 }}>
           <Footer />
         </div>
       </main>

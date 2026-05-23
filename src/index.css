@@ -57,6 +57,8 @@
 }
 
 /* ─── Typography Utilities ───────────────────────────── */
+
+/* Genel başlık fontu — orijinal Bebas Neue */
 .font-display {
   font-family: 'Bebas Neue', 'Inter', sans-serif;
   letter-spacing: 0.02em;
@@ -185,6 +187,15 @@
 /* Applied to elements with heavy transforms (horizontal scroll track) */
 .will-change-transform {
   will-change: transform;
+}
+
+/* ─── Contact Form Inputs ────────────────────────────── */
+.contact-input:focus {
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 0 20px rgba(255,255,255,0.04);
+}
+
+.contact-input::placeholder {
+  color: rgba(161, 161, 170, 0.45);
 }
 
 /* ─── Scrollbar Styling ──────────────────────────────── */
