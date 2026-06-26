@@ -19,15 +19,15 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
  * replay cleanly if the user scrolls back up past the footer.
  */
 const Footer = () => {
-  const footerRef   = useRef(null);
-  const titleRef    = useRef(null);
-  const descRef     = useRef(null);
-  const borderRef   = useRef(null);
+  const footerRef = useRef(null);
+  const titleRef = useRef(null);
+  const descRef = useRef(null);
+  const borderRef = useRef(null);
 
   useGSAP(() => {
     const commonTrigger = {
-      trigger:       footerRef.current,
-      start:         'top 82%',
+      trigger: footerRef.current,
+      start: 'top 82%',
       toggleActions: 'play none none reverse',
     };
 
@@ -59,8 +59,8 @@ const Footer = () => {
       duration: 0.8,
       ease: 'power2.out',
       scrollTrigger: {
-        trigger:       footerRef.current,
-        start:         'top 76%',
+        trigger: footerRef.current,
+        start: 'top 76%',
         toggleActions: 'play none none reverse',
       },
     });
@@ -72,8 +72,8 @@ const Footer = () => {
       duration: 1.6,
       ease: 'power2.out',
       scrollTrigger: {
-        trigger:       borderRef.current,
-        start:         'top 90%',
+        trigger: borderRef.current,
+        start: 'top 90%',
         toggleActions: 'play none none reverse',
       },
     });
@@ -104,29 +104,20 @@ const Footer = () => {
                 İletişim
               </h4>
               <a
-                href="mailto:hello@felides.com"
+                href="mailto:info@felides.com"
                 className="footer-link text-zinc-400 hover:text-white transition-colors"
               >
-                hello@felides.com
+                info@felides.com
               </a>
-              <p className="footer-link text-zinc-400">+90 (555) 123 45 67</p>
+              <p className="footer-link text-zinc-400">+90 (551) 106 55 28</p>
             </div>
 
             <div className="flex flex-col gap-4">
               <h4 className="footer-link font-semibold text-zinc-300 uppercase tracking-wider text-sm mb-2">
                 Sosyal
               </h4>
-              <a href="#" className="footer-link text-zinc-400 hover:text-white transition-colors flex items-center gap-1">
+              <a href="https://www.instagram.com/felidesagency/" target="_blank" rel="noopener noreferrer" className="footer-link text-zinc-400 hover:text-white transition-colors flex items-center gap-1">
                 Instagram <ArrowUpRight size={14} />
-              </a>
-              <a href="#" className="footer-link text-zinc-400 hover:text-white transition-colors flex items-center gap-1">
-                Twitter <ArrowUpRight size={14} />
-              </a>
-              <a href="#" className="footer-link text-zinc-400 hover:text-white transition-colors flex items-center gap-1">
-                LinkedIn <ArrowUpRight size={14} />
-              </a>
-              <a href="#" className="footer-link text-zinc-400 hover:text-white transition-colors flex items-center gap-1">
-                Awwwards <ArrowUpRight size={14} />
               </a>
             </div>
           </div>
