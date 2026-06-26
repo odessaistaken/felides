@@ -6,10 +6,10 @@ import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Contact = () => {
-  const sectionRef   = useRef(null);
-  const headingRef   = useRef(null);
-  const formRef      = useRef(null);
-  const leftRef      = useRef(null);
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const formRef = useRef(null);
+  const leftRef = useRef(null);
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -144,13 +144,13 @@ const Contact = () => {
               <div className="contact-info-item flex items-start gap-5">
                 <div className="shrink-0 w-11 h-11 rounded-2xl border border-zinc-800 flex items-center justify-center bg-zinc-900">
                   <svg className="w-5 h-5 text-zinc-400" viewBox="0 0 24 24" fill="none">
-                    <path d="M6.6 10.8C7.8 13.2 9.8 15.2 12.2 16.4L14 14.6C14.2 14.4 14.6 14.4 14.8 14.6C15.8 15 16.8 15.2 17.8 15.2C18.2 15.2 18.6 15.6 18.6 16V18.8C18.6 19.2 18.2 19.6 17.8 19.6C10.4 19.6 4.4 13.6 4.4 6.2C4.4 5.8 4.8 5.4 5.2 5.4H8C8.4 5.4 8.8 5.8 8.8 6.2C8.8 7.2 9 8.2 9.4 9.2C9.6 9.4 9.4 9.8 9.2 10L7.4 11.8C7.2 11.6 6.8 11.2 6.6 10.8Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M6.6 10.8C7.8 13.2 9.8 15.2 12.2 16.4L14 14.6C14.2 14.4 14.6 14.4 14.8 14.6C15.8 15 16.8 15.2 17.8 15.2C18.2 15.2 18.6 15.6 18.6 16V18.8C18.6 19.2 18.2 19.6 17.8 19.6C10.4 19.6 4.4 13.6 4.4 6.2C4.4 5.8 4.8 5.4 5.2 5.4H8C8.4 5.4 8.8 5.8 8.8 6.2C8.8 7.2 9 8.2 9.4 9.2C9.6 9.4 9.4 9.8 9.2 10L7.4 11.8C7.2 11.6 6.8 11.2 6.6 10.8Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
                 <div>
                   <div className="text-white font-semibold mb-1">Telefon</div>
-                  <a href="tel:+905551234567" className="text-zinc-400 hover:text-white transition-colors">
-                    +90 (555) 123 45 67
+                  <a href="tel:+905511065528" className="text-zinc-400 hover:text-white transition-colors">
+                    +90 (551) 106 55 28
                   </a>
                 </div>
               </div>
@@ -159,14 +159,14 @@ const Contact = () => {
               <div className="contact-info-item flex items-start gap-5">
                 <div className="shrink-0 w-11 h-11 rounded-2xl border border-zinc-800 flex items-center justify-center bg-zinc-900">
                   <svg className="w-5 h-5 text-zinc-400" viewBox="0 0 24 24" fill="none">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M22 6l-10 7L2 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M22 6l-10 7L2 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
                 <div>
                   <div className="text-white font-semibold mb-1">E-posta</div>
-                  <a href="mailto:hello@felides.com" className="text-zinc-400 hover:text-white transition-colors">
-                    hello@felides.com
+                  <a href="mailto:info@felides.com" className="text-zinc-400 hover:text-white transition-colors">
+                    info@felides.com
                   </a>
                 </div>
               </div>
@@ -175,8 +175,8 @@ const Contact = () => {
               <div className="contact-info-item flex items-start gap-5">
                 <div className="shrink-0 w-11 h-11 rounded-2xl border border-zinc-800 flex items-center justify-center bg-zinc-900">
                   <svg className="w-5 h-5 text-zinc-400" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    <circle cx="12" cy="9" r="2.5" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle cx="12" cy="9" r="2.5" stroke="currentColor" strokeWidth="1.5" />
                   </svg>
                 </div>
                 <div>
@@ -189,9 +189,7 @@ const Contact = () => {
             {/* Social links */}
             <div className="flex items-center gap-4 pt-4 border-t border-zinc-900">
               {[
-                { label: 'Instagram', href: '#' },
-                { label: 'LinkedIn',  href: '#' },
-                { label: 'Twitter',   href: '#' },
+                { label: 'Instagram', href: 'https://www.instagram.com/felidesagency/' },
               ].map((social) => (
                 <a
                   key={social.label}
