@@ -70,7 +70,7 @@ Tarayıcıda `http://localhost:5173` adresini aç.
 ```
 felides-agency/
 ├── public/
-│   ├── felideslogo.png
+│   ├── felideslogopng.png
 │   └── icons.svg
 ├── src/
 │   ├── components/
